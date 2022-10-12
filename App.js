@@ -1,117 +1,83 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {View, Text, SafeAreaView, StyleSheet, ScrollView} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const App = () => {
+  // Variables
+  const fullname = 'Darron Brown';
+  let firstname = 'Darron';
+  var lastname = 'Brown';
 
-/* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
- * LTI update could not be added via codemod */
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+  // Data Types
+  let number = 7;
+  let boolean = false;
+  let string = 'String';
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+  //Quotations
+  const quote1 = 'Hello There';
+  const quote2 = "Hello There Again";
+  const stringWithQuote = "I love hanging out on Friday's";
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  // Shorthand variables
+  let lion = 'lion', tiger = 'tiger';
+
+  // Arrays
+  let animals = ['pig', 'chicken', 'sheep'];
+  animals[2] = 'horse';
+  animals[3] = 'hawk';
+
+  // Expressions
+  const expression = 'const expression = \'This is an expression\';';
+  const thirtySix = 9 * 4;
+  const teacherNames = 'Darron ' + 'Brown';
+
+  // Operators
+  const isCorrect = 9 > 5 ? 'This is correct' : 'This is incorrect';
+  const subtraction = 5 - 1;
+  const multiplication = 10 * 4;
+  const division = 30 / 3;
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
+    <SafeAreaView style={{flex: 1}}>
+      <ScrollView>
+        <Text style={styles.header}>Variables</Text>
+        <Text>{fullname}</Text>
+        <Text>{firstname} {lastname} {'\n'}</Text>
+        <Text style={styles.header}>Data Types</Text>
+        <Text>{number}</Text>
+        <Text>Boolean: {boolean}</Text>
+        <Text>{string} {'\n'}</Text>
+        <Text style={styles.header}>Quotations</Text>
+        <Text>{quote1}</Text>
+        <Text>{quote2}</Text>
+        <Text>{stringWithQuote} {'\n'}</Text>
+        <Text style={styles.header}>Short hand variables</Text>
+        <Text>{lion}</Text>
+        <Text>{tiger} {'\n'}</Text>
+        <Text style={styles.header}>Array</Text>
+        {animals.map((animal, index) => <Text key={index}>{animal}</Text>)}
+        <Text>{animals[0]}</Text>
+        <Text>{animals[1]}</Text>
+        <Text>{animals[2]}</Text>
+        <Text>{animals[3]} {'\n'}</Text>
+        <Text style={styles.header}>Expressions</Text>
+        <Text>{expression}</Text>
+        <Text>9 * 4 = {thirtySix}</Text>
+        <Text> const teacherNames = {teacherNames} {'\n'}</Text>
+        <Text style={styles.header}>Operators</Text>
+        <Text>{isCorrect}</Text>
+        <Text>{subtraction}</Text>
+        <Text>{multiplication}</Text>
+        <Text>{division}</Text>
       </ScrollView>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+  header: {
+    fontSize: 20,
+    fontWeight: 'bold'
+  }
+})
 
 export default App;
